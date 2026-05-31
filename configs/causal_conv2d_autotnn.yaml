@@ -1,0 +1,31 @@
+seed: 0
+experiment_dir: experiments/causal_conv2d_autotnn
+
+data:
+  sample_rate: 16000
+  train_csv: data/processed/train_pairs.csv
+  val_csv: data/processed/val_pairs.csv
+  test_csv: data/processed/test_pairs.csv
+
+frls:
+  n_fft: 4096
+  hop_length: 256
+  lambda_: 0.9
+  psd_init: 0.001
+  eps: 1.0e-8
+
+model:
+  name: causal_conv2d_autotnn
+  context_frames: 8
+  kernel_time: 3
+  kernel_freq: 5
+  bottleneck_channels: 16
+
+training:
+  epochs: 100
+  batch_size: 6
+  train_utterances_per_epoch: 30
+  lr: 0.001
+  patience: 5
+  grad_clip: 5.0
+  device: auto
