@@ -151,6 +151,7 @@ activemq-data/
 .env
 .envrc
 .venv
+.venv/
 env/
 venv/
 ENV/
@@ -216,3 +217,46 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project-specific: causal-tnn-echo-cancellation
+
+# Large/downloaded datasets and generated CSV file lists
+# Keep the folder structure with .gitkeep files, but do not commit data.
+data/raw/*
+data/processed/*
+data/AEC-Challenge/
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Model checkpoints and exported models
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.torchscript
+
+# Experiment outputs: checkpoints, histories, ERLE CSVs, plots, summaries
+experiments/*
+!experiments/.gitkeep
+
+# Training/evaluation logs
+runs/
+wandb/
+mlruns/
+lightning_logs/
+*.log
+
+# Local config overrides and secrets
+*.local.yaml
+*.local.yml
+.env.local
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Temporary audio/debug outputs, if created outside experiments/
+*_debug.wav
+*_debug.png
+*_tmp.wav
+*_tmp.png
